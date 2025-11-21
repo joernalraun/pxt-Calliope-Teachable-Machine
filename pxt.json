@@ -1,0 +1,20 @@
+{
+"name": "calliope-teachable-machine",
+"version": "0.0.1",
+"description": "Calliope Teachable Machine Erweiterung mit Klassen-Dropdowns",
+  "dependencies": {
+    "core": "*",
+    "v3": "*",
+    "bluetooth": "*",
+    "LofiRobot": "github:calliope-edu/lofirobot"
+  },
+"files": [
+"teachable.ts"
+],
+"public": true,
+"license": "MIT",
+"color": "#BBEF53",
+"supportedTargets": [
+"calliopemini"
+]
+}
