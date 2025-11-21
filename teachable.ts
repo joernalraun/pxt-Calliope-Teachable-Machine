@@ -12,7 +12,7 @@ Klasse3 = 3
 }
 
 //% blockNamespace=teachable
-//% color=#BBEF53
+//% color=#9ab5bd
 namespace teachable {
 
 /**
