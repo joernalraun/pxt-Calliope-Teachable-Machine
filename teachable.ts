@@ -1,5 +1,5 @@
 // Enum für gemeinsame Klassenliste
-// beide Blöcke nutzen dieselbe Dropdown-Quelle)
+// Die Werte können später programmgesteuert überschrieben werden.
 // Aktuell statisch: Klasse 1–3
 //% blockNamespace=teachable
 //% color=#BBEF53
@@ -17,15 +17,6 @@ Klasse3 = 3
 //% blockNamespace=teachable
 //% color=#BBEF53
 namespace teachable {
-
-/**
-* Hauptblock: "Übergebene Klasse {Dropdown}"
-*/
-//% block="Klasse %klasse"
-//% klasse.defl=ClassName.Klasse1
-export function uebergebeneKlasse(klasse: ClassName): void {
-// Der Block macht aktuell nichts
-}
 
 /**
 * Runder Wertblock mit Dropdown für Klassen
