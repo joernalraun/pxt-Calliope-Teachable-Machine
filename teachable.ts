@@ -1,47 +1,38 @@
-// Dynamische Klassenliste mit Fallback
+// Dynamischer Fallback
 let dynamicClasses: string[] = ["Klasse 1", "Klasse 2", "Klasse 3"];
 
 //% blockNamespace=teachable
 //% color=#9ab5bd
 namespace teachable {
 
-    /**
-     * Aufzurufende Funktion
-     * 
-     */
+    // Wird extern aufgerufen
     //% blockHidden=true
     export function setClasses(list: string[]): void {
-        if (list && list.length) {
+        if (list && list.length > 0) {
             dynamicClasses = list;
         } else {
-            // falls leer übergeben wird, bleib beim Fallback
             dynamicClasses = ["Klasse 1", "Klasse 2", "Klasse 3"];
         }
     }
 
-    /**
-     * MakeCode holt sich hier die Dropdown-Optionen.
-     * Rückgabe als Array von [Text, Wert]-Pairs!
-     */
+    // Dynamic dropdown generator: MUSS immer Werte liefern
     //% blockHidden=true
-    export function classes(): string[][] {
-        // Falls dynamicClasses aus irgendeinem Grund leer ist -> Fallback
-        if (!dynamicClasses || !dynamicClasses.length) {
+    export function classOptions(): [string, string][] {
+        if (!dynamicClasses || dynamicClasses.length === 0) {
             dynamicClasses = ["Klasse 1", "Klasse 2", "Klasse 3"];
         }
         return dynamicClasses.map(c => [c, c]);
     }
 
     /**
-     * Runder Reporter-Block
+     * Runder Reporterblock mit sicherem Fallback
      */
-    //% block="Klasse: %klasse"
-    //% blockId=teachable_class_value
-    //% klasse.fieldEditor="dropdown"
-    //% klasse.fieldOptions.values="teachable.classes"
-    //% klasse.fieldOptions.decompileLiterals=true
-    //% klasse.defl="Klasse 1"
-    export function klasse(klasse: string): string {
-        return klasse;
+    //% block="Klasse: %value"
+    //% value.fieldEditor="dropdown"
+    //% value.fieldOptions.options="teachable.classOptions"
+    //% value.shadow="dropdown"
+    //% value.defl="Klasse 1"
+    export function klasse(value: string): string {
+        return value;
     }
 }
