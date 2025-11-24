@@ -1,23 +1,16 @@
-// Als Dropdown darstellbar (Calliope unterstützt nur Enums)
-enum ClassName {
-    //% block="Klasse 1"
-    Klasse1,
-    //% block="Klasse 2"
-    Klasse2,
-    //% block="Klasse 3"
-    Klasse3
+enum DynamicClassEnum {
+    // Wird dynamisch überschrieben
+    Anzeige
 }
 
 //% blockNamespace=teachable
 //% color=#9ab5bd
 namespace teachable {
 
-    /**
-     * Reporterblock mit ENUM-Dropdown, gibt aber STRING zurück.
-     */
+    // Reporterblock mit ENUM-Dropdown
+    // Dropdown wird nach dem Neugenerieren korrekt angezeigt
     //% block="Klasse: %klasse"
-    export function klasse(klasse: ClassName): string {
-        // ENUM → STRING wandeln
-        return ClassName[klasse];
+    export function klasse(klasse: DynamicClassEnum): string {
+        return DynamicClassEnum[klasse];
     }
 }
