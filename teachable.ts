@@ -1,29 +1,23 @@
-// Globale Klassenliste als CSV (funktioniert garantiert in Calliope MakeCode)
-let dynamicClassList = "Klasse 1,Klasse 2,Klasse 3";
+// Als Dropdown darstellbar (Calliope unterstützt nur Enums)
+enum ClassName {
+    //% block="Klasse 1"
+    Klasse1,
+    //% block="Klasse 2"
+    Klasse2,
+    //% block="Klasse 3"
+    Klasse3
+}
 
 //% blockNamespace=teachable
 //% color=#9ab5bd
 namespace teachable {
 
-    // Wird von außen aufgerufen
-    //% blockHidden=true
-    export function setClasses(list: string[]): void {
-        if (list && list.length > 0) {
-            dynamicClassList = list.join(",");
-        } else {
-            dynamicClassList = "Klasse 1,Klasse 2,Klasse 3";
-        }
-    }
-
     /**
-     * Custom Dropdown-Editor.
-     * MakeCode verwendet das CSV und erzeugt automatisch ein Dropdown.
+     * Reporterblock mit ENUM-Dropdown, gibt aber STRING zurück.
      */
-    //% block="Klasse: %value"
-    //% value.fieldEditor="stringdropdown"
-    //% value.fieldOptions.data="dynamicClassList"
-    //% value.defl="Klasse 1"
-    export function klasse(value: string): string {
-        return value;
+    //% block="Klasse: %klasse"
+    export function klasse(klasse: ClassName): string {
+        // ENUM → STRING wandeln
+        return ClassName[klasse];
     }
 }
