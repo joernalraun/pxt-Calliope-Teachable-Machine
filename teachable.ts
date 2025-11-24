@@ -4,11 +4,11 @@
 
 enum ClassName {
 //% block="Klasse 1"
-Klasse1 = 1,
+Klasse1 = "Klasse1",
 //% block="Klasse 2"
-Klasse2 = 2,
+Klasse2 = "Klasse2",
 //% block="Klasse 3"
-Klasse3 = 3
+Klasse3 = "Klasse3"
 }
 
 //% blockNamespace=teachable
