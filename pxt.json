@@ -1,6 +1,6 @@
 {
 "name": "calliope teachable machine",
-"version": "0.0.9",
+"version": "0.1.1",
 "description": "Calliope Teachable Machine Erweiterung mit Klassen-Dropdowns",
   "dependencies": {
     "core": "*",
